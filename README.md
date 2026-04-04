@@ -70,7 +70,7 @@ on_follow() { echo "FOLLOW: $1"; }
 on_share()  { echo "SHARE: $1"; }
 on_ended()  { echo "STREAM ENDED"; }
 
-pt_connect "someone"
+pt_connect "username_here"
 ```
 
 ### Low-level API
@@ -92,7 +92,7 @@ pt_wss_close             # cleanup
 ### Check online status
 
 ```sh
-result=$(pt_check_online "someone")
+result=$(pt_check_online "username_here")
 case "$result" in
     LIVE:*) echo "live, room ${result#LIVE:}" ;;
     OFF)    echo "offline" ;;
