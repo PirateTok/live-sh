@@ -4,7 +4,17 @@
 set +e
 
 _SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-. "$_SCRIPT_DIR/lib/piratetok.sh"
+_PT_LIB=""
+for _p in \
+    "$_SCRIPT_DIR/lib/piratetok.sh" \
+    "$_SCRIPT_DIR/../lib/piratetok/piratetok.sh" \
+    "$HOME/.local/lib/piratetok/piratetok.sh" \
+    "/usr/local/lib/piratetok/piratetok.sh"
+do
+    [ -f "$_p" ] && _PT_LIB="$_p" && break
+done
+[ -z "$_PT_LIB" ] && { echo "error: piratetok.sh not found" >&2; exit 1; }
+. "$_PT_LIB"
 
 # --- event handlers ---
 on_chat()    { printf '\033[36m[chat]\033[0m %s: %s\n' "$1" "$2"; }
