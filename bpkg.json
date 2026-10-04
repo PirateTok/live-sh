@@ -1,9 +1,9 @@
 {
   "name": "piratetok-live-sh",
-  "version": "0.2.0",
-  "description": "TikTok Live WebSocket connector in POSIX sh — real-time chat, gifts, likes. No authentication required.",
+  "version": "0.3.0",
+  "description": "TikTok Live connector in POSIX sh — 64 typed events, auto-reconnect, proxy, helpers. No authentication required.",
   "global": true,
-  "install": "mkdir -p ${PREFIX}/lib/piratetok && cp lib/piratetok.sh ${PREFIX}/lib/piratetok/piratetok.sh && cp tiktok-live.sh ${PREFIX}/bin/tiktok-live && chmod +x ${PREFIX}/bin/tiktok-live",
+  "install": "mkdir -p ${PREFIX}/lib/piratetok ${PREFIX}/bin && cp lib/* ${PREFIX}/lib/piratetok/ && cp tiktok-live.sh ${PREFIX}/bin/tiktok-live && chmod +x ${PREFIX}/bin/tiktok-live",
   "scripts": ["tiktok-live.sh"],
   "lib": ["lib/piratetok.sh"],
   "author": "Zmole Cristian",
